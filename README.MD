@@ -24,7 +24,7 @@ bruteforce(s, n)
 ```
 
 ## References
-[Weighted Geometric Mean, Minimum Mediated Set, and Optimal Second Order Cone Representation](), Jie Wang, 2022.  
+[Weighted Geometric Mean, Minimum Mediated Set, and Optimal Second Order Cone Representation](https://arxiv.org/abs/2206.05924), Jie Wang, 2022.  
 
 ## Contact
 [Jie Wang](https://wangjie212.github.io/jiewang/): wangjie212@amss.ac.cn
