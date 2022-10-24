@@ -2,10 +2,15 @@ using JuMP
 using MosekTools
 using LinearAlgebra
 using Dualization
+using COPT
 
-function maxtrace(A, n, s; alg="GPT", QUIET=false)
-    # model = Model(optimizer_with_attributes(Mosek.Optimizer))
-    model = Model(dual_optimizer(Mosek.Optimizer))
+function maxtrace(A, n, s; alg="GPT", solver="Mosek", QUIET=false)
+    if solver == "Mosek"
+        model = Model(optimizer_with_attributes(Mosek.Optimizer))
+        # model = Model(dual_optimizer(Mosek.Optimizer))
+    else
+        model = Model(COPT.ConeOptimizer)
+    end
     set_optimizer_attribute(model, MOI.Silent(), QUIET)
     w = @variable(model, [1:3], lower_bound=0)
     @constraint(model, sum(w)==1)

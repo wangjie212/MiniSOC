@@ -1,5 +1,5 @@
 # Maximum trace
-n = 2
+n = 3
 s = [391;280;211]
 A = Vector{Matrix{Float64}}(undef, 6)
 for i = 1:6
@@ -8,7 +8,10 @@ for i = 1:6
     A[i] = r/tr(r)
 end
 @time begin
-opt = maxtrace(A, n, s, QUIET=true)
+opt = maxtrace(A, n, s, solver="Mosek", QUIET=true)
+end
+@time begin
+opt = maxtrace(A, n, s, solver="COPT", QUIET=true)
 end
 
 # Maximum entropy problem

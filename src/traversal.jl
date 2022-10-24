@@ -53,7 +53,7 @@ function traversal(s; v=length(s)+1, strategy="GPT")
     index = [s]
     tsoc = [Vector{UInt16}[]]
     tv = UInt16[v]
-    for k = 1:2c
+    for k = 1:1e4
         extsoc = Vector{Vector{UInt16}}[]
         exindex = Vector{UInt16}[]
         extv = UInt16[]
